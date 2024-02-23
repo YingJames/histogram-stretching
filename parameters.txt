@@ -1,0 +1,29 @@
+# Task A multiple ROIs
+baboon.png taskA/baboon_taskA.png multiRoi binarizeG 0 0 100 addG 125 125 100 thresholdG 225 225 100
+baboon.png taskA/baboon_addG_roi.png addG 150 0 0 100
+baboon.png taskA/baboon_threshold_roi.png thresholdG 150 100 100 50 200
+baboon.png taskA/baboon_binarize_roi.png binarizeG 100 50 200 150
+
+# Task B1
+baboon.png taskB1/baboon_roi.png greyRoi 120 20 200
+taskB1/baboon_roi.png taskB1/baboon_flip.png flipImage 90 -90
+
+# Task B2
+taskB1/baboon_roi.png taskB2/baboon_scale.png scaleUp 1.5 0 0 200
+taskB2/baboon_scale.png taskB2/baboon_scale_flip.png flipImage 90 -90
+
+# Task B3
+taskB1/baboon_roi.png taskB3/baboon_addG.png addG 50 0 0 200
+taskB3/baboon_addG.png taskB3/baboon_flip.png flipImage 90 -90
+
+# Task C1
+baboon_color.png taskC1/baboon_roi.png colorRoi 120 20 200
+taskC1/baboon_roi.png taskC1/baboon_flip.png flipColorImage 90 -90
+
+# Task C2
+taskC1/baboon_roi.png taskC2/baboon_multColor.png multColor 3
+taskC2/baboon_multColor.png taskC2/baboon_flip.png flipColorImage 90 -90
+
+# Task C3
+taskC1/baboon_roi.png taskC3/baboon_addColor.png addColor 50
+taskC3/baboon_addColor.png taskC3/baboon_flip.png flipColorImage 90 -90
