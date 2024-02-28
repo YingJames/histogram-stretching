@@ -5,30 +5,23 @@
 #include <opencv2/core.hpp>
 #include <opencv2/opencv.hpp>
 #include <fstream>
-
-#include "runFromParameters.hpp"
 #include "utils.hpp"
-#include "roi.hpp"
-#include "rotateFlip.hpp"
 
-using namespace std;
+using std::vector;
 using namespace cv;
-
-// void save_image(Mat tgt, string output_name);
-vector<vector<string>> getParametersFromFile();
 
 #define MAXLEN 256
 int main()
 {
-    vector<vector<string>> parameters = getParametersFromFile();
+    vector<vector<std::string>> parameters = getParametersFromFile();
     loopParams(parameters);
     return 0;
 }
 
-vector<vector<string>> getParametersFromFile()
+vector<vector<std::string>> getParametersFromFile()
 {
-    vector<vector<string>> parameters;
-    vector<string> tempParameter;
+    vector<vector<std::string>> parameters;
+    vector<std::string> tempParameter;
 
     std::ifstream file("parameters.txt");
     if (!file.is_open())
@@ -36,17 +29,17 @@ vector<vector<string>> getParametersFromFile()
         throw std::runtime_error("Failed to open file: parameters.txt");
     }
 
-    string line;
+    std::string line;
     while (getline(file, line))
     {
-        vector<string> temp;
-        stringstream ss(line);
+        vector<std::string> temp;
+        std::stringstream ss(line);
 
         // remove comments and empty lines
         if (line.empty() || line[0] == '#')
             continue;
 
-        string token;
+        std::string token;
         while (getline(ss, token, ' '))
         {
             temp.push_back(token);

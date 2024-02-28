@@ -11,19 +11,6 @@ using namespace cv;
 #include <opencv2/opencv.hpp>
 #include "utils.hpp"
 
-void scale_Grey(Mat src, Mat tgt, float ratio)
-{
-    for (int i = 0; i < tgt.rows; ++i)
-    {
-        for (int j = 0; j < tgt.cols; ++j)
-        {
-            int i2 = (int)floor((float)i / ratio);
-            int j2 = (int)floor((float)j / ratio);
-            set_pixel(src, tgt, i, j, get_pixel(src, i2, j2));
-        }
-    }
-}
-
 void convert_pgm(string image_name, string output_name)
 {
     cv::Mat png_image = cv::imread(image_name, cv::IMREAD_GRAYSCALE);
